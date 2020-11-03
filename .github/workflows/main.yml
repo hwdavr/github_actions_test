@@ -26,7 +26,7 @@ jobs:
       # Runs a single command using the runners shell
       - name: Run a one-line script
         run: |
-          if [[ ${{ github.github.ref }} =~ *adhoc-release-* ]]; then
+          if [[ ${{ github.github.ref }} =~ .*adhoc-release-.* ]]; then
               echo ${{ github.github.ref }}
           fi
 
