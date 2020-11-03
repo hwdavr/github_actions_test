@@ -6,7 +6,8 @@ name: CI
 # events but only for the main branch
 on:
   push:
-    branches: [ main ]
+    branches:
+    - 'adhoc-release-*'
   pull_request:
     branches: [ main ]
 
@@ -24,7 +25,10 @@ jobs:
 
       # Runs a single command using the runners shell
       - name: Run a one-line script
-        run: echo Hello, world!
+        run: |
+          if [[ ${{ github.github.ref }} =~ *adhoc-release-* ]]; then
+              echo ${{ github.github.ref }}
+          fi
 
       # Runs a set of commands using the runners shell
       - name: Run a multi-line script
