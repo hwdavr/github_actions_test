@@ -6,8 +6,6 @@ name: CI
 # events but only for the main branch
 on:
   push:
-    branches:
-    - 'adhoc-release-*'
   pull_request:
     branches: [ main ]
 
